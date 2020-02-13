@@ -1,15 +1,26 @@
-# Ministry of Justice Template Repository
+# List MoJ github organisation members
 
-Use this template to [create a repository] with the default initial files for a Ministry of Justice Github repository, including:
+Developed from: https://gist.github.com/jdennes/11404512
 
-* The correct LICENSE
-* Github actions
-* .gitignore file
+# Pre-requisites
 
-Once you have created your repository, please:
+* ruby 2.6.2
+* [Github token](https://github.com/settings/tokens) with read:org permission, SSO-enabled for the MoJ organisation
 
-* Edit the copy of this README.md file to document your project
-* Grant permissions to the appropriate MoJ teams
-* Setup branch protection
+# Install
 
-[create a repository]: https://github.com/ministryofjustice/template-repository/generate
+```
+bundle install
+```
+
+# Run
+
+```
+export OCTOKIT_ACCESS_TOKEN=[your github access token]
+make
+```
+
+This takes approx. 3 minutes, because the script retrieves details for each user individually, which is a bit slow.
+
+The user list will be output to the file `export-all.csv`
+
